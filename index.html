@@ -52,7 +52,7 @@
 
     <!--Navbar end-->
     <!--Header start-->
-    <header class="backImage text-white  text-center">
+    <header class="backImage text-white  text-center" id="myHeader">
         <div class="container">
             <div class="backImage-sub mb-4">Stüdyomuza Hoş Geldiniz!</div>
             <div class="backImage-heading text-uppercase">Tanıştığımıza Memnun Olduk</div>
@@ -419,35 +419,52 @@
                     delectus earum. Eos, veritatis soluta velit eligendi esse a, ipsam maiores tenetur eum itaque, sit
                     laborum officia quo tempora. Perspiciatis, nesciunt.</h3>
             </div>
-            <form id="frmContact" novalidate>
+            <form class="needs-validation" action="#" id="frmContact" novalidate>
                 <div class="row align-items-stretch mb-5">
                 <div class="col-md-6">
                     <div class="form-floating mb-4">
-                        <input type="text"  id="name" class="form-control" placeholder="Adınızı Giriniz." required>
-                        <label for="name">Adınız.</label>
+                        <input type="text"  id="name" class="form-control" placeholder="Adınızı Giriniz." required maxlength="40"
+                        aria-describedby="ErrName">
+                        <label for="name">Adınız.
+                            <span class="text-danger" aria-hidden="true">*</span>
+                            <span class="visually-hidden">Zorunlu Alan</span>
+                        </label>
                         <div class="invalid-feedback" id="ErrName"></div>
                     </div>
                     <div class="form-floating mb-4">
                         <input type="email"  id="email" class="form-control" placeholder="E-mail Adresinizi Giriniz." required>
-                        <label for="email">E-Posta Adresiniz.</label>
+                        <label for="email">E-Posta Adresiniz.
+                            <span class="text-danger" aria-hidden="true">*</span>
+                            <span class="visually-hidden">Zorunlu Alan</span>
+                        </label>
                         <div class="invalid-feedback" id="ErrMail"></div>
                     </div>
                     <div class="form-floating mb-4">
-                        <input type="tel"  id="phone" class="form-control" placeholder="Telefon Numaranızı Giriniz." required>
-                        <label for="phone">Telefon Numaranız.</label>
+                        <input type="tel"  id="phone" class="form-control" placeholder="Telefon Numaranızı Giriniz." required >
+                        <label for="phone">Telefon Numaranız.
+                            <span class="text-danger" aria-hidden="true">*</span>
+                            <span class="visually-hidden">Zorunlu Alan</span>
+                        </label>
                         <div class="invalid-feedback" id="ErrPhone"></div>
                     </div>
                 </div>   
                 <div class="col-md-6">
                     <div class="form-floating form-textarea mb-md-0">
-                        <textarea  id="message" class="form-control" placeholder="Adınızı Giriniz." required></textarea>
-                        <label for="message">Mesajınız.</label>
+                        <textarea  id="message" class="form-control" placeholder="Adınızı Giriniz." required maxlength="300"></textarea>
+                        <label for="message">Mesajınız.
+                            <span class="text-danger" aria-hidden="true">*</span>
+                            <span class="visually-hidden">Zorunlu Alan</span>
+                        </label>
                         <div class="invalid-feedback" id="ErrMessage"></div>
+                    </div>
+                    <div class="text-white text-end">
+                        <span id="current-character">0</span>
+                        <span>/ 300</span>
                     </div>
                 </div> 
                 </div>
                 <div class="text-center">
-                    <button type="submit" class="btn btn-danger btn-lg text-uppercase py-3">Mesaj Gönder</button>
+                    <button type="submit" class="btn btn-danger btn-lg text-uppercase py-3" id="btnContact">Mesaj Gönder</button>
                 </div>
             </form>
         </div>
@@ -475,8 +492,6 @@
                         <i class="bi bi-linkedin"></i>
                     </a>
                 </div>
-<div>HEll world</div>
-
                 <div class="col-lg-4 text-lg-end">
                     <a href="#" class="link-info text-decoration-none me-3">Gizlilik Politikası</a>
                     <a href="#" class="link-secondary text-decoration-none">Anasayfa</a>
